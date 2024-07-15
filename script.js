@@ -44,3 +44,21 @@ let googleUserName = '';
 // Get the name input field
 let nameInput = document.getElementById('name-input');
 let nameLabel = document.getElementById('name-label');
+
+// Add a realtime listener
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in
+    googleUserName = user.displayName;
+    // Hide the name input field
+    nameInput.style.display = 'none';
+    nameLabel.style.display = 'none';
+  } else {
+    // User is signed out
+    googleUserName = '';
+    // Show the name input field
+    nameInput.style.display = 'block';
+    nameLabel.style.display = 'block';
+  }
+});
