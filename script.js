@@ -7,3 +7,17 @@ async function sendMessage() {
   await fetch(fullUrl);
 
 }
+
+async function getMessages() {
+  let res = await fetch(url);
+  let messages = await res.json();
+
+  let messagesDiv = document.getElementById('message-div');
+  messagesDiv.innerHTML = '';
+
+  for (let i = messages.length - 1; i > 0; i--) {
+    messagesDiv.innerHTML += '<p>' + messages[i] + '</p>';
+  }
+}
+
+setInterval(getMessages, 1000);S
