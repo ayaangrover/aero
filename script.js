@@ -62,3 +62,11 @@ onAuthStateChanged(auth, (user) => {
     nameLabel.style.display = 'block';
   }
 });
+
+window.sendMessage = async function() {
+  // Check if a user is signed in
+  if (!googleUserName) {
+    console.warn('No user signed in');
+    alert('You must be signed in to send a message');
+    return;
+  }
