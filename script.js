@@ -10,3 +10,16 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAYVNq7NGKvfxEZyjPSBD_0UOX2HXt8Lwg",
+  authDomain: "ths-chat.firebaseapp.com",
+  projectId: "ths-chat",
+  storageBucket: "ths-chat.appspot.com",
+  messagingSenderId: "772905161590",
+  appId: "1:772905161590:web:49709166a8eec26a67a057",
+  measurementId: "G-MTGMGGM747"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
