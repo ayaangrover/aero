@@ -1,27 +1,12 @@
 const url = 'https://61c7a5a8-fbf2-442f-905d-a687daa25c71-00-1kwplgteasmdd.janeway.replit.dev/';
 
-async function sendMessage() {
-  let messageInput = document.getElementById('message-input');
-  let nameInput = document.getElementById('name-input');
-  let message = messageInput.value;
-  let name = nameInput.value;
-  let time = Date();
-  let fullUrl = url + 'send/' + message + ' (' + name + ', ' + time + ')';
-  console.log(fullUrl)
-  console.log('sent on ' + time)
-  await fetch(fullUrl);
-}
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
 
-async function getMessages() {
-  let res = await fetch(url);
-  let messages = await res.json();
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  let messagesDiv = document.getElementById('message-div');
-  messagesDiv.innerHTML = '';
-
-  for (let i = messages.length - 1; i > 0; i--) {
-    messagesDiv.innerHTML += '<p>' + messages[i] + '</p>';
-  }
-}
-
-setInterval(getMessages, 1000);
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
