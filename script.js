@@ -23,3 +23,24 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+// Get the sign-in button
+var signInButton = document.getElementById('sign-in-button');
+
+// Add sign-in event
+signInButton.addEventListener('click', async function() {
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error(error);
+    alert('Error: ' + error)
+  }
+});
+
+let googleUserName = '';
+
+// Get the name input field
+let nameInput = document.getElementById('name-input');
+let nameLabel = document.getElementById('name-label');
